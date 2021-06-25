@@ -1,0 +1,21 @@
+Library
+#include<stack>
+
+Declaration
+stack<int> mystack;
+
+push(g) – Adds the element ‘g’ at the top of the stack – Time Complexity : O(1)
+mystack.push(value);  OR mystack.emplace(value)
+
+pop() – Deletes the top most element of the stack – Time Complexity : O(1)
+mystack.pop()
+
+empty() – Returns whether the stack is empty – Time Complexity : O(1) 
+mystack.empty() 
+
+top() – Returns a reference to the top most element of the stack – Time Complexity : O(1)
+mystack.top()
+
+size() – Returns the size of the stack – Time Complexity : O(1)
+mystack.size()
+
