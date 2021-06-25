@@ -52,6 +52,7 @@ void push(int data){
 int main()
 {
     string expression;
+    string result="";
     cout<<"Enter the expression : ";
     cin>>expression;
     for(int i=0; i<expression.length(); i++){
@@ -66,7 +67,7 @@ int main()
                     while(stack[top]!='('){
                         char data;
                         data = pop();
-                        cout<<data;
+                        result += data;
                     }
                     char data = pop();
                 } else if(c=='+' || c=='-'){
@@ -77,7 +78,7 @@ int main()
                             if(stack[top]!='('){
                                 char data;
                                 data = pop();
-                                cout<<data;
+                                result += data;
                             } else {
                                 break;
                             }
@@ -92,7 +93,7 @@ int main()
                             if(stack[top]!='(' && stack[top]!='+' && stack[top]!='-'){
                                 char data;
                                 data = pop();
-                                cout<<data;
+                                result += data;
                             } else {
                                 break;
                             }
@@ -107,7 +108,7 @@ int main()
                             if(stack[top]!='(' && stack[top]!='+' && stack[top]!='-' && stack[top]!='*' && stack[top]!='/'){
                                 char data;
                                 data = pop();
-                                cout<<data;
+                                result += data;
                             } else {
                                 break;
                             }
@@ -117,13 +118,14 @@ int main()
                 }
             }
         } else {
-            cout<<c;
+            result += c;
         }
     }
     while(!isempty()){
         char data;
         data=pop();
-        cout<<data;
+        result += data;
     }
+    cout<<result;
     return 0;
 }
