@@ -74,9 +74,43 @@ int main()
                         push(c);
                     } else{
                         while(!isempty()){
-                            char data;
-                            data = pop();
-                            cout<<data;
+                            if(stack[top]!='('){
+                                char data;
+                                data = pop();
+                                cout<<data;
+                            } else {
+                                break;
+                            }
+                        }
+                        push(c);
+                    }
+                } else if(c=='*' || c=='/'){
+                    if(stack[top]=='+' || stack[top]=='-' || stack[top]=='(' ){
+                        push(c);
+                    } else {
+                        while(!isempty()){
+                            if(stack[top]!='(' && stack[top]!='+' && stack[top]!='-'){
+                                char data;
+                                data = pop();
+                                cout<<data;
+                            } else {
+                                break;
+                            }
+                        }
+                        push(c);
+                    }
+                } else if(c=='^'){
+                    if(stack[top]=='+' || stack[top]=='-' || stack[top]=='*' || stack[top]=='*' || stack[top]=='(' ){
+                        push(c);
+                    } else {
+                        while(!isempty()){
+                            if(stack[top]!='(' && stack[top]!='+' && stack[top]!='-' && stack[top]!='*' && stack[top]!='/'){
+                                char data;
+                                data = pop();
+                                cout<<data;
+                            } else {
+                                break;
+                            }
                         }
                         push(c);
                     }
