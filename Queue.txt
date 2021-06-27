@@ -1,14 +1,21 @@
 Library
 #include<queue>
+#include<deque>
 
 Declaration
 queue<int> myqueue;
+priority_queue<int> myqueue; //It proritize automatically
+deque<int> myqueue;
 
 push(g) - push() function adds the element ‘g’ at the end of the queue
 myqueue.push(g); OR myqueue.emplace(g);
+myqueue.push_front(g); OR myqueue.emplace_front(g); - Deque
+myqueue.push_back(g); OR myqueue.emplace_back(g); - Deque
 
 pop(g) - pop() function deletes the first element of the queue.
 myqueue.pop();
+myqueue.pop_front(); - Deque
+myqueue.pop_back(); - Deque
 
 front() - front() function returns a reference to the first element of the queue.
 int var = myqueue.front();
