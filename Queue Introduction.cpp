@@ -77,19 +77,19 @@ int main(){
             enqueue(data);
             char ch;             
             cout<<"\nEnter any key to continue ";             
-            cin>>ch;;
+            cin>>ch;
         } else if(option==3){
             cout<<"The value at the front is : "<<peek()<<endl;
             char ch;             
             cout<<"\nEnter any key to continue ";             
-            cin>>ch;;
+            cin>>ch;
         } else if(option==4){
             int data;
             data = dequeue();
             cout<<"Value deleted from queue is "<<data<<endl;
             char ch;             
             cout<<"\nEnter any key to continue ";             
-            cin>>ch;;
+            cin>>ch;
         } else if(option==5){
             cout<<"Bye Bye";
             return 0;
