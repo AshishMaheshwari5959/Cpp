@@ -1,0 +1,23 @@
+Library
+#include<queue>
+
+Declaration
+queue<int> myqueue;
+
+push(g) - push() function adds the element ‘g’ at the end of the queue
+myqueue.push(g); OR myqueue.emplace(g);
+
+pop(g) - pop() function deletes the first element of the queue.
+myqueue.pop();
+
+front() - front() function returns a reference to the first element of the queue.
+int var = myqueue.front();
+
+back() - back() function returns a reference to the last element of the queue.
+int var = myqueue.back();
+
+empty() – Returns whether the queue is empty.
+myqueue.empty()
+
+size() – Returns the size of the queue.
+myqueue.size()
