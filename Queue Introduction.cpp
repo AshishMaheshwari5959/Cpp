@@ -6,21 +6,18 @@ using namespace std;
 
 int myqueue[8];
 int MAXSIZE = 8;
-int front = -1;
+int front = 0;
 int rear = -1;
+int itemCount = 0;
 
-bool isempty(){
-    if(front==-1 && rear==-1)
-        return 1;
-    else
-        return 0;
+bool isempty() {
+   return itemCount == 0;
 }
 
-bool isfull(){
-    if(rear==(MAXSIZE-1))
+bool isfull() {
+    if(rear==MAXSIZE-1)
         return 1;
-    else
-        return 0;
+   return itemCount == MAXSIZE;
 }
 
 int peek(){
@@ -30,30 +27,33 @@ int peek(){
 }
 
 void enqueue(int data){
-    if(isempty()){
-        front++;
-        rear++;
-        myqueue[rear]=data;
-    } else if(!isfull()){
-        rear++;
-        myqueue[rear]=data;
+    if(!isfull()){
+        myqueue[++rear]=data;
+        itemCount++;
     } else {
         cout<<"\nQueue is full!";
+        getch();
     }
 }
 
 int dequeue(){
     if(isempty()){
         cout<<"\nQueue is empty!";
-        return 0;
+        return -1;
     } else {
-        int data = myqueue[front];
-        front++;
+        int data = myqueue[front++];
+        itemCount--;
         return data;
     }
 }
 
 int main(){
+    enqueue(1);
+    enqueue(2);
+    enqueue(3);
+    enqueue(4);
+    enqueue(5);
+    enqueue(6);
     int option=0;
     while(option!=5){
         cout<<"Welcome to queue of size 8\nPress 1 To print queue\nPress 2 To insert in queue\nPress 3 To peek\nPress 4 To delete from queue\nPress 5 To exit";
@@ -64,39 +64,34 @@ int main(){
                 cout<<"Queue is Empty\n";
             } else {
                 for(int i=front; i<=rear; i++){
-                    cout<<myqueue[i]<<endl;
+                    cout<<i<<" "<<myqueue[i]<<endl;
                 }
             }
-            char ch;
-            cout<<"\nEnter any key to continue ";
-            cin>>ch;
+            getch();
         } else if(option==2){
             int data;
             cout<<"Enter the value to insert : ";
             cin>>data;
             enqueue(data);
-            char ch;             
-            cout<<"\nEnter any key to continue ";             
-            cin>>ch;
         } else if(option==3){
-            cout<<"The value at the front is : "<<peek()<<endl;
-            char ch;             
-            cout<<"\nEnter any key to continue ";             
-            cin>>ch;
+            if(peek()!=-1)
+                cout<<"The value at the front is : "<<peek()<<endl;
+            else 
+                cout<<"Queue is empty";
+            getch();
         } else if(option==4){
             int data;
             data = dequeue();
-            cout<<"Value deleted from queue is "<<data<<endl;
-            char ch;             
-            cout<<"\nEnter any key to continue ";             
-            cin>>ch;
+            if(data!=-1)
+                cout<<"Value deleted from queue is "<<data<<endl;
+            getch();
         } else if(option==5){
             cout<<"Bye Bye";
             return 0;
         } else {
             cout<<"Enter value correctly"<<endl;
         }
-        system("clear");
+        system("cls");
     }
     return 0;
 }
